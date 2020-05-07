@@ -13,10 +13,12 @@ mongoose.connect(uri, {useCreateIndex:true, useNewUrlParser : true, useUnifiedTo
 const connection = mongoose.connection; 
 connection.once('open', ()=>{
     console.log("connected established ");
-}); 
+});
 
-const productController = require('./controller/ProductController'); 
+const productController = require('./controller/ProductController');
+const userController = require('./controller/UserController'); 
 app.use('/product', productController); 
+app.use('/user', userController);
 
 app.get('/', (req, res)=>{
     res.send('working !')
