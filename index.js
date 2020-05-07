@@ -17,9 +17,10 @@ connection.once('open', ()=>{
 
 const productController = require('./controller/ProductController');
 const userController = require('./controller/UserController'); 
+const transactionController = require('./controller/TransactionController'); 
 app.use('/product', productController); 
 app.use('/user', userController);
-
+app.use('/transaction', transactionController); 
 app.get('/', (req, res)=>{
     res.send('working !')
 })

@@ -14,7 +14,7 @@ router.route('/').post((req, res)=>{
    
     const _user = user({email, password, name, wallet}); 
     _user.save()
-    .then(()=>res.json('new product added successfully'))
+    .then(()=>res.json('new user added successfully'))
     .catch(err=>res.status(400).json(err)); 
 });
 
