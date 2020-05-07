@@ -16,5 +16,9 @@ router.route('/').post((req,res)=>{
     .then(()=>res.json('new product added successfully'))
     .catch(err=>res.status(400).json(err)); 
 }); 
-
+router.route('/:id').get((req, res)=>{
+    product.findById(req.params.id)
+    .then(prod => res.json(prod))
+    .catch(err=> res.status(400).json(err)); 
+});
 module.exports = router; 
