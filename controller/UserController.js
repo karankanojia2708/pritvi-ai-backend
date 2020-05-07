@@ -25,4 +25,19 @@ router.route('/:id').get((req,res)=>{
 });
 
 
+router.route('/update/:id').post((req,res)=>{
+    user.findById(req.params.id)
+    .then(_user=>{
+        _user.email = req.body.email; 
+        _user.password = req.body.password; 
+        _user.name = req.body.name; 
+        _user.wallet = req.body.wallet; 
+        _user.save()
+        .then(()=>res.json('updated successfully !'))
+        .catch(err=> res.status(400).json(err)); 
+    })
+    .catch(err=> res.status(400).json(err)); 
+}); 
+
+
 module.exports = router; 
